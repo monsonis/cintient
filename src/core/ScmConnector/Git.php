@@ -37,7 +37,7 @@ class ScmConnector_Git extends ScmConnectorAbstract implements ScmConnectorInter
 {
   public function checkout()
   {
-    $command = (empty($this->_envVars)?'':$this->getEnvVars() . ' && ') . "{$GLOBALS['settings'][SystemSettings::EXECUTABLE_GIT]} clone {$this->getRemote()} {$this->getLocal()}";
+    $command = (empty($this->_envVars)?'':$this->getEnvVars() . ' && ') . "{$GLOBALS['settings'][SystemSettings::EXECUTABLE_GIT]} clone --recursive {$this->getRemote()} {$this->getLocal()}";
     $proc = new Framework_Process();
     $proc->setExecutable($command, false);
     $proc->run();
