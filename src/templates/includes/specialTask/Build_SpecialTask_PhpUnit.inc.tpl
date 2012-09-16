@@ -60,11 +60,11 @@
   {/foreach}
   {capture append="testChartsJs"}
   {$height=120+32*{$testMethod@total}}
-  var chart{$classTest->getName()} = new CintientHighcharts();
-  chart{$classTest->getName()}.unitTestChart({
+  var chart{$classTest->getName()|replace:"\\":"_"} = new CintientHighcharts();
+  chart{$classTest->getName()|replace:"\\":"_"}.unitTestChart({
     categories: {$methodNames},
-    renderTo: 'chartUnitTests{$classTest->getName()}Container',
-    title: '{$classTest->getName()}',
+    renderTo: 'chartUnitTests{$classTest->getName()|replace:"\\":"_"}Container',
+    title: '{$classTest->getName()|replace:"\\":"/"}',
     height: {$height},
     okData: {$oks},
     failedData: {$faileds},
@@ -80,7 +80,7 @@
   });
   {/capture}
   {capture append="testChartsHtml"}
-          <li><div id="chartUnitTests{$classTest->getName()}Container" class="chart"></div></li>
+          <li><div id="chartUnitTests{$classTest->getName()|replace:"\\":"_"}Container" class="chart"></div></li>
   {/capture}
 {/foreach}
 <ul class="media-grid">{foreach $testChartsHtml as $html}{$html}{/foreach}</ul>
