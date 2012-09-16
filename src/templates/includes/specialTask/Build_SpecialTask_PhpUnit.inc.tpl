@@ -32,7 +32,13 @@
     {$okTotal=$totalTests-$failedTotal*}
     {$ok=$testMethod->getCalculatedOks()}
     {$failed=$testMethod->getCalculatedFaileds()}
-    {if $testMethod@first}
+    {if $testMethod@first and $testMethod@last}
+      {$methodNames="['$methodName']"}
+      {$oks="[$ok]"}
+      {$faileds="[$failed]"}
+      {*$okTotals="[$okTotal]"}
+      {$failedTotals="[$failedTotal]"*}
+    {else if $testMethod@first}
       {$methodNames="['$methodName'"}
       {$oks="[$ok"}
       {$faileds="[$failed"}
