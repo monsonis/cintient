@@ -115,7 +115,7 @@ class Build_SpecialTask_PhpUnit extends Framework_DatabaseObjectAbstract impleme
             -1
           );
           // Add a few CSS tweaks
-          SystemEvent::raise(SystemEvent::ERROR, $file, __METHOD__);
+          SystemEvent::raise(SystemEvent::DEBUG, $file, __METHOD__);
           if ($file == 'style.css') {
             $newDestHtml .= "html,body,table,tr,td,a{font-size:8pt;font-family:sans-serif,arial,helvetica;}";
             $newDestHtml .= <<<EOT
