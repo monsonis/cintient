@@ -101,6 +101,7 @@ class Build_BuilderElement_Task_Php_PhpUnitXml extends Build_BuilderElement
       return true;
     }
     $callbacks = array(
+      array('cb' => 'getHtmlFailOnError'),
       array(
       	'cb' => 'getHtmlInputText',
       	'name' => 'executable',
@@ -217,6 +218,7 @@ if (!extension_loaded('xdebug')) {
 \$getExecutable = expandStr('{$this->getExecutable()}');
 \$GLOBALS['result']['task'] = 'phpunitxml';
 output(\"Executing '\$getBaseDir\$getExecutable\$args'.\");
+\$lines = array();
 \$ret = exec(\"\$getBaseDir\$getExecutable\$args\", \$lines, \$retval);
 foreach (\$lines as \$line) {
   output(\$line);
