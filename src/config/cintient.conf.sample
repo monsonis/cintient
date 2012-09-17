@@ -135,7 +135,10 @@ define('CINTIENT_PHPCODESNIFFER_INCLUDE_FILE', CINTIENT_INSTALL_DIR . 'lib/PEAR/
 define('CINTIENT_PHPCODESNIFFER_REPORT_XML_FILE', 'phpcsReportXml.xml');
 define('CINTIENT_PHPCODESNIFFER_REPORT_FULL_FILE', 'phpcsReportFull.txt');
 
-
+//
+// PHP_MessDetector
+//
+define('CINTIENT_PHPMESSDETECTOR_REPORT_FULL_FILE', 'phpmdReportFull.txt');
 
 // Register our autoloader
 spl_autoload_register(function ($classname) {
